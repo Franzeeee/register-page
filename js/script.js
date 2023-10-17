@@ -46,13 +46,20 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     const email = formData.get("email");
     const password = formData.get("password");
 
-    // You can now use the form data in your JavaScript code
-    localStorage.setItem("fullname", fullname);
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+    // Store data to an object
+    const userData = {
+        fullname,
+        username,
+        email,
+        password,
+    }
 
+    // Store Data to the Browser's Local Storage
+    localStorage.setItem("User Data", JSON.stringify(userData));
+
+    // Reset the form.
     event.target.reset();
+    // Display the modal for notification.
     displayThankYouModal();
 });
 
@@ -69,6 +76,3 @@ window.addEventListener("click", function (event) {
         closeModal();
     }
 });
-
-
-
