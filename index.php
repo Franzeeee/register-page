@@ -31,7 +31,7 @@
             <span class="close" id="closeModal">&times;</span>
             <img src="img/check.png" alt="check image">
             <h2>Registered successfully!</h2>
-            <p>Data successfully saved to local storage.</p>
+            <p>Data successfully saved to database.</p>
         </div>
     </div>
 
