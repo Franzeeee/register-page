@@ -32,37 +32,23 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// Code for storing form data to the browser's local storage
+ $(document).ready(function() {
+            $("#registerForm").submit(function(e) {
+                e.preventDefault();
 
-document.getElementById("registerForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission.
+                var formData = $(this).serialize();
 
-    // Get form data using FormData
-    const formData = new FormData(event.target);
-
-    // Access form fields by their "name" attribute
-    const fullname = formData.get("fullname");
-    const username = formData.get("username");
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    // Store data to an object
-    const userData = {
-        fullname,
-        username,
-        email,
-        password,
-    }
-
-    // Store Data to the Browser's Local Storage
-    localStorage.setItem("User Data", JSON.stringify(userData));
-
-    // Reset the form.
-    event.target.reset();
-    // Display the modal for notification.
-    displayThankYouModal();
+                $.ajax({
+                    type: "POST",
+                    url: "register.php",
+                    data: formData,
+                    success: function(response) {
+                        displayThankYouModal();
+                        $("#registerForm")[0].reset();
+                    }
+                });
+            });
 });
-
 
 
 document.getElementById("closeModal").addEventListener("click", function () {

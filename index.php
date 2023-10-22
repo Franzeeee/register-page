@@ -15,7 +15,7 @@
             <div class="header">
                 <h1>Sign Up</h1>
             </div>
-            <form id="registerForm">
+            <form id="registerForm" method="POST">
                 <input type="text" autocomplete="off" name="fullname" placeholder="Complete Name" required>
                 <input type="text" autocomplete="off" name="username" placeholder="Username" required>
                 <input type="email" autocomplete="off" name="email" placeholder="Email" required>
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="js/script.js"></script>
 </body>
 
